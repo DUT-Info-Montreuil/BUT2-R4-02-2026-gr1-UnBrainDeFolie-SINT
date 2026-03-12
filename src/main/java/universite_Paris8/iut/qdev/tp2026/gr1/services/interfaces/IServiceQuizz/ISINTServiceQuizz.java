@@ -3,8 +3,7 @@ package universite_Paris8.iut.qdev.tp2026.gr1.services.interfaces.IServiceQuizz;
 import universite_Paris8.iut.qdev.tp2026.gr1.commons.dtos.ElementsDisponiblesDTO;
 import universite_Paris8.iut.qdev.tp2026.gr1.commons.dtos.QuestionnaireDispoDTO;
 import universite_Paris8.iut.qdev.tp2026.gr1.utils.JoueurDTO;
-import universite_Paris8.iut.qdev.tp2026.gr1.utils.exceptions.ElementInexistantException;
-import universite_Paris8.iut.qdev.tp2026.gr1.utils.exceptions.ErreurChargementException;
+import universite_Paris8.iut.qdev.tp2026.gr1.utils.exceptions.*;
 
 import java.util.ArrayList;
 
@@ -19,19 +18,19 @@ public interface ISINTServiceQuizz {
      * Retourne la liste de tous les joueurs disponibles.
      *
      * @return ArrayList contenant les joueurs disponibles
-     * @throws ElementInexistantException si la liste des joueurs est vide ou inexistante
-     * @throws ErreurChargementException si un joueur dans la liste est null
+     * @throws JoueursInexistantsException si la liste des joueurs est vide ou inexistante
+     * @throws ErreurChargementJoueurException si un joueur dans la liste est null
      */
-    public ArrayList<JoueurDTO> joueursDisponibles() throws ElementInexistantException, ErreurChargementException;
+    public ArrayList<JoueurDTO> joueursDisponibles() throws JoueursInexistantsException, ErreurChargementJoueurException;
 
     /**
      * Retourne la liste de tous les questionnaires disponibles.
      *
      * @return ArrayList contenant les questionnaires disponibles
-     * @throws ElementInexistantException si la liste des questionnaires est vide ou inexistante
-     * @throws ErreurChargementException si un questionnaire dans la liste est null
+     * @throws QuestionnairesInexistantsException si la liste des questionnaires est vide ou inexistante
+     * @throws ErreurChargementQuestionnairesException si un questionnaire dans la liste est null
      */
-    public ArrayList<QuestionnaireDispoDTO> questionnairesDisponibles() throws ElementInexistantException, ErreurChargementException;
+    public ArrayList<QuestionnaireDispoDTO> questionnairesDisponibles() throws QuestionnairesInexistantsException, ErreurChargementQuestionnairesException;
 
     /**
      * Retourne un objet regroupant l'ensemble des éléments disponibles,
