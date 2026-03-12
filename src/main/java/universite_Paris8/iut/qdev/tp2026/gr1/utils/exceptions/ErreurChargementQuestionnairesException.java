@@ -5,13 +5,13 @@ package universite_Paris8.iut.qdev.tp2026.gr1.utils.exceptions;
  * Hérite de ElementNullException et fournit un message par défaut
  * adapté au contexte des questionnaires.
  */
-public class QuestionnaireNullException extends ElementNullException {
+public class ErreurChargementQuestionnairesException extends ErreurChargementException {
 
-    public QuestionnaireNullException() {
+    public ErreurChargementQuestionnairesException() {
         super("Le questionnaire demandé est null ou n'a pas été initialisé.");
     }
 
-    public QuestionnaireNullException(String message) {
+    public ErreurChargementQuestionnairesException(String message) {
         super(message);
     }
 }

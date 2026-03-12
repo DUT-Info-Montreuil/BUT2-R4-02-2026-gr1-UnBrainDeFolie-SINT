@@ -1,11 +1,10 @@
 package universite_Paris8.iut.qdev.tp2026.gr1.services.interfaces.IServiceQuizz;
 
 import universite_Paris8.iut.qdev.tp2026.gr1.commons.dtos.ElementsDisponiblesDTO;
-import universite_Paris8.iut.qdev.tp2026.gr1.commons.dtos.QuestionnairesDispoDTO;
+import universite_Paris8.iut.qdev.tp2026.gr1.commons.dtos.QuestionnaireDispoDTO;
 import universite_Paris8.iut.qdev.tp2026.gr1.utils.JoueurDTO;
-import universite_Paris8.iut.qdev.tp2026.gr1.utils.QuestionnaireDTO;
 import universite_Paris8.iut.qdev.tp2026.gr1.utils.exceptions.ElementInexistantException;
-import universite_Paris8.iut.qdev.tp2026.gr1.utils.exceptions.ElementNullException;
+import universite_Paris8.iut.qdev.tp2026.gr1.utils.exceptions.ErreurChargementException;
 
 import java.util.ArrayList;
 
@@ -21,18 +20,18 @@ public interface ISINTServiceQuizz {
      *
      * @return ArrayList contenant les joueurs disponibles
      * @throws ElementInexistantException si la liste des joueurs est vide ou inexistante
-     * @throws ElementNullException si un joueur dans la liste est null
+     * @throws ErreurChargementException si un joueur dans la liste est null
      */
-    public ArrayList<JoueurDTO> joueursDisponibles() throws ElementInexistantException, ElementNullException;
+    public ArrayList<JoueurDTO> joueursDisponibles() throws ElementInexistantException, ErreurChargementException;
 
     /**
      * Retourne la liste de tous les questionnaires disponibles.
      *
      * @return ArrayList contenant les questionnaires disponibles
      * @throws ElementInexistantException si la liste des questionnaires est vide ou inexistante
-     * @throws ElementNullException si un questionnaire dans la liste est null
+     * @throws ErreurChargementException si un questionnaire dans la liste est null
      */
-    public ArrayList<QuestionnairesDispoDTO> questionnairesDisponibles() throws ElementInexistantException, ElementNullException;
+    public ArrayList<QuestionnaireDispoDTO> questionnairesDisponibles() throws ElementInexistantException, ErreurChargementException;
 
     /**
      * Retourne un objet regroupant l'ensemble des éléments disponibles,
@@ -40,7 +39,7 @@ public interface ISINTServiceQuizz {
      *
      * @return ElementsDisponiblesDTO contenant les joueurs et les questionnaires disponibles
      * @throws ElementInexistantException si une des listes est vide ou inexistante
-     * @throws ElementNullException si un des éléments est null
+     * @throws ErreurChargementException si un des éléments est null
      */
-    public ElementsDisponiblesDTO elementsDispo(ArrayList<JoueurDTO> joueurDTO,QuestionnairesDispoDTO questionnairesDispoDTO) throws ElementInexistantException, ElementNullException;
+    public ElementsDisponiblesDTO elementsDispo(ArrayList<JoueurDTO> joueurDTO, QuestionnaireDispoDTO questionnaireDispoDTO) throws ElementInexistantException, ErreurChargementException;
 }

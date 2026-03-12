@@ -1,32 +1,24 @@
 package universite_Paris8.iut.qdev.tp2026.gr1.commons.dtos;
 
-import universite_Paris8.iut.qdev.tp2026.gr1.utils.QuestionnaireDTO;
-
-import java.util.List;
-
 /**
  * DTO (Data Transfer Object) représentant les questionnaires disponibles,
  * avec le nombre de questions par niveau de difficulté ainsi que
- * la liste des questionnaires disponibles sous forme de QuestionnaireDTO.
+ * le questionnaires disponible sous forme de QuestionnaireDTO.
  */
-public class QuestionnairesDispoDTO {
+public class QuestionnaireDispoDTO {
 
     private int nbQuestionsSimples;
     private int nbQuestionsIntermediaires;
     private int nbQuestionsDifficiles;
-    private List<QuestionnaireDTO> listeQuestionnairesDispo;
+    private String libelle;
+    private int idQuestionnaire;
 
     // Constructeur complet
-    public QuestionnairesDispoDTO(int nbQuestionsSimples, int nbQuestionsIntermediaires,
-                                  int nbQuestionsDifficiles, List<QuestionnaireDTO> listeQuestionnairesDispo) {
-        this.nbQuestionsSimples = nbQuestionsSimples;
-        this.nbQuestionsIntermediaires = nbQuestionsIntermediaires;
-        this.nbQuestionsDifficiles = nbQuestionsDifficiles;
-        this.listeQuestionnairesDispo = listeQuestionnairesDispo;
+    public QuestionnaireDispoDTO() {
+        this.nbQuestionsSimples = 0;
+        this.nbQuestionsIntermediaires = 0;
+        this.nbQuestionsDifficiles = 0;
     }
-
-    // Constructeur vide
-    public QuestionnairesDispoDTO() {}
 
     // Getters / Setters
     public int getNbQuestionsSimples() {
@@ -53,13 +45,22 @@ public class QuestionnairesDispoDTO {
         this.nbQuestionsDifficiles = nbQuestionsDifficiles;
     }
 
-    public List<QuestionnaireDTO> getListeQuestionnairesDispo() {
-        return listeQuestionnairesDispo;
+    public String getlibelle() {
+        return libelle;
     }
 
-    public void setListeQuestionnairesDispo(List<QuestionnaireDTO> listeQuestionnairesDispo) {
-        this.listeQuestionnairesDispo = listeQuestionnairesDispo;
+    public void setlibelle(String libelle) {
+        this.libelle = libelle;
     }
+
+    public int getIdQuestionnaire() {
+        return idQuestionnaire;
+    }
+
+    public void setIdQuestionnaire(int idQuestionnaire) {
+        this.idQuestionnaire = idQuestionnaire;
+    }
+
 
     // ToString
     @Override
@@ -68,7 +69,8 @@ public class QuestionnairesDispoDTO {
                 "nbQuestionsSimples=" + nbQuestionsSimples +
                 ", nbQuestionsIntermediaires=" + nbQuestionsIntermediaires +
                 ", nbQuestionsDifficiles=" + nbQuestionsDifficiles +
-                ", listeQuestionnairesDispo=" + listeQuestionnairesDispo +
+                ", libelle=" + libelle +
+                ", idQuestionnaire=" + idQuestionnaire +
                 '}';
     }
 }

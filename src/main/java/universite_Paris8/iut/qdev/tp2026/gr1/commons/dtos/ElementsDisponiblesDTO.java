@@ -2,6 +2,7 @@ package universite_Paris8.iut.qdev.tp2026.gr1.commons.dtos;
 
 import universite_Paris8.iut.qdev.tp2026.gr1.utils.JoueurDTO;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -11,11 +12,11 @@ import java.util.List;
  */
 public class ElementsDisponiblesDTO {
 
-    private List<JoueurDTO> joueurs;
-    private QuestionnairesDispoDTO questionnaires;
+    private ArrayList<JoueurDTO> joueurs;
+    private ArrayList<QuestionnaireDispoDTO> questionnaires;
 
     // Constructeur complet
-    public ElementsDisponiblesDTO(List<JoueurDTO> joueurs, QuestionnairesDispoDTO questionnaires) {
+    public ElementsDisponiblesDTO(ArrayList<JoueurDTO> joueurs, ArrayList<QuestionnaireDispoDTO> questionnaires) {
         this.joueurs = joueurs;
         this.questionnaires = questionnaires;
     }
@@ -24,19 +25,19 @@ public class ElementsDisponiblesDTO {
     public ElementsDisponiblesDTO() {}
 
     // Getters / Setters
-    public List<JoueurDTO> getJoueurs() {
+    public ArrayList<JoueurDTO> getJoueurs() {
         return joueurs;
     }
 
-    public void setJoueurs(List<JoueurDTO> joueurs) {
+    public void setJoueurs(ArrayList<JoueurDTO> joueurs) {
         this.joueurs = joueurs;
     }
 
-    public QuestionnairesDispoDTO getQuestionnaires() {
+    public ArrayList<QuestionnaireDispoDTO> getQuestionnaires() {
         return questionnaires;
     }
 
-    public void setQuestionnaires(QuestionnairesDispoDTO questionnaires) {
+    public void setQuestionnaires(ArrayList<QuestionnaireDispoDTO> questionnaires) {
         this.questionnaires = questionnaires;
     }
 
