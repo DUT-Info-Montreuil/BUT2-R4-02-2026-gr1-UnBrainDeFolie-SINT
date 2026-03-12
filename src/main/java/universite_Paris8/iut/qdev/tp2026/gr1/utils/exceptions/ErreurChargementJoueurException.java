@@ -5,13 +5,13 @@ package universite_Paris8.iut.qdev.tp2026.gr1.utils.exceptions;
  * Hérite de ElementNullException et fournit un message par défaut
  * adapté au contexte des joueurs.
  */
-public class JoueurNullException extends ElementNullException {
+public class ErreurChargementJoueurException extends ErreurChargementException {
 
-    public JoueurNullException() {
+    public ErreurChargementJoueurException() {
         super("Le joueur demandé est null ou n'a pas été initialisé.");
     }
 
-    public JoueurNullException(String message) {
+    public ErreurChargementJoueurException(String message) {
         super(message);
     }
 }
