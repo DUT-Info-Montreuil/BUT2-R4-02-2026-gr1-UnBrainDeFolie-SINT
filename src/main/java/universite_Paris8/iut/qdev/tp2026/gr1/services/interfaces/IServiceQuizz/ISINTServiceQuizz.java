@@ -1,8 +1,8 @@
 package universite_Paris8.iut.qdev.tp2026.gr1.services.interfaces.IServiceQuizz;
 
 import universite_Paris8.iut.qdev.tp2026.gr1.commons.dtos.ElementsDisponiblesDTO;
+import universite_Paris8.iut.qdev.tp2026.gr1.commons.dtos.JoueurDTO;
 import universite_Paris8.iut.qdev.tp2026.gr1.commons.dtos.QuestionnaireDispoDTO;
-import universite_Paris8.iut.qdev.tp2026.gr1.utils.JoueurDTO;
 import universite_Paris8.iut.qdev.tp2026.gr1.utils.exceptions.*;
 
 import java.util.ArrayList;
@@ -40,5 +40,5 @@ public interface ISINTServiceQuizz {
      * @throws ElementInexistantException si une des listes est vide ou inexistante
      * @throws ErreurChargementException si un des éléments est null
      */
-    public ElementsDisponiblesDTO elementsDispo(ArrayList<JoueurDTO> joueurDTO, QuestionnaireDispoDTO questionnaireDispoDTO) throws ElementInexistantException, ErreurChargementException;
+    public ElementsDisponiblesDTO elementsDispo() throws ElementInexistantException, ErreurChargementException;
 }

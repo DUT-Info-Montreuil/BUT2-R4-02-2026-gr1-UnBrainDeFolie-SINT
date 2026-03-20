@@ -1,9 +1,6 @@
 package universite_Paris8.iut.qdev.tp2026.gr1.commons.dtos;
 
-import universite_Paris8.iut.qdev.tp2026.gr1.utils.JoueurDTO;
-
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * DTO (Data Transfer Object) représentant l'ensemble des éléments disponibles,
