@@ -15,7 +15,7 @@ import java.util.ArrayList;
  *   "Cette méthode doit renvoyer une erreur JoueursInexistantsException
  *    lors de l'appel vers listerJoueurs, si les joueurs sont inexistants."
  */
-public class JoueursInexistantsImpMock implements ISINTServiceQuizz {
+public class JoueursInexistantsMock implements ISINTServiceQuizz {
 
     @Override
     public ArrayList<JoueurDTO> joueursDisponibles()

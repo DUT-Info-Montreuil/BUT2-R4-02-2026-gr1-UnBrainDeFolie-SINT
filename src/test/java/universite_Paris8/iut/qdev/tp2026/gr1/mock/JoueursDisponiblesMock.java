@@ -15,7 +15,7 @@ import java.util.ArrayList;
  * Scénario couvert (plan de test §joueursDisponibles – cas 1) :
  *   "Cette méthode consiste à appeler listerJoueurs puis renvoyer la liste."
  */
-public class JoueursOkImpMock implements ISINTServiceQuizz {
+public class JoueursDisponiblesMock implements ISINTServiceQuizz {
 
     @Override
     public ArrayList<JoueurDTO> joueursDisponibles()
