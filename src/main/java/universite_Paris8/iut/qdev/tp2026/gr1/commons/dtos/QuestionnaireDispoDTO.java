@@ -14,10 +14,12 @@ public class QuestionnaireDispoDTO {
     private int idQuestionnaire;
 
     // Constructeur complet
-    public QuestionnaireDispoDTO() {
-        this.nbQuestionsSimples = 0;
-        this.nbQuestionsIntermediaires = 0;
-        this.nbQuestionsDifficiles = 0;
+    public QuestionnaireDispoDTO(int nbQuestionsSimples, int nbQuestionsIntermediaires, int nbQuestionsDifficiles, String libelle, int idQuestionnaire) {
+        this.nbQuestionsSimples = nbQuestionsSimples;
+        this.nbQuestionsIntermediaires = nbQuestionsIntermediaires;
+        this.nbQuestionsDifficiles = nbQuestionsDifficiles;
+        this.libelle = libelle;
+        this.idQuestionnaire = idQuestionnaire;
     }
 
     // Getters / Setters

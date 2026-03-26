@@ -2,6 +2,7 @@ package universite_Paris8.iut.qdev.tp2026.gr1.services.interfaces.IServiceQuizz;
 
 import universite_Paris8.iut.qdev.tp2026.gr1.commons.dtos.ElementsDisponiblesDTO;
 import universite_Paris8.iut.qdev.tp2026.gr1.commons.dtos.JoueurDTO;
+import universite_Paris8.iut.qdev.tp2026.gr1.commons.dtos.QuestionnaireDTO;
 import universite_Paris8.iut.qdev.tp2026.gr1.commons.dtos.QuestionnaireDispoDTO;
 import universite_Paris8.iut.qdev.tp2026.gr1.services.interfaces.IServiceJoueur;
 import universite_Paris8.iut.qdev.tp2026.gr1.utils.exceptions.*;
@@ -23,7 +24,7 @@ public interface ISINTServiceQuizz {
      * @throws JoueursInexistantsException si la liste des joueurs est vide ou inexistante
      * @throws ErreurChargementJoueurException si un joueur dans la liste est null
      */
-    public List<JoueurDTO> joueursDisponibles(IServiceJoueur serviceJoueur) throws JoueursInexistantsException, ErreurChargementJoueurException, ListeJoueursException;
+    public List<JoueurDTO> joueursDisponibles() throws JoueursInexistantsException, ErreurChargementJoueurException, ListeJoueursException;
 
     /**
      * Retourne la liste de tous les questionnaires disponibles.
@@ -42,6 +43,6 @@ public interface ISINTServiceQuizz {
      * @throws ElementInexistantException si une des listes est vide ou inexistante
      * @throws ErreurChargementException si un des éléments est null
      */
-    public ElementsDisponiblesDTO elementsDispo(IServiceJoueur serviceJoueur) throws ElementInexistantException, ErreurChargementException;
+    public ElementsDisponiblesDTO elementsDispo() throws ElementInexistantException, ErreurChargementException;
 
 }
