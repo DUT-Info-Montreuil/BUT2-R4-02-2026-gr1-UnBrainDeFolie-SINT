@@ -1,6 +1,6 @@
 package universite_Paris8.iut.qdev.tp2026.gr1.commons.dtos;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * DTO (Data Transfer Object) représentant l'ensemble des éléments disponibles,
@@ -9,11 +9,11 @@ import java.util.ArrayList;
  */
 public class ElementsDisponiblesDTO {
 
-    private ArrayList<JoueurDTO> joueurs;
-    private ArrayList<QuestionnaireDispoDTO> questionnaires;
+    private List<JoueurDTO> joueurs;
+    private List<QuestionnaireDispoDTO> questionnaires;
 
     // Constructeur complet
-    public ElementsDisponiblesDTO(ArrayList<JoueurDTO> joueurs, ArrayList<QuestionnaireDispoDTO> questionnaires) {
+    public ElementsDisponiblesDTO(List<JoueurDTO> joueurs, List<QuestionnaireDispoDTO> questionnaires) {
         this.joueurs = joueurs;
         this.questionnaires = questionnaires;
     }
@@ -22,19 +22,19 @@ public class ElementsDisponiblesDTO {
     public ElementsDisponiblesDTO() {}
 
     // Getters / Setters
-    public ArrayList<JoueurDTO> getJoueurs() {
+    public List<JoueurDTO> getJoueurs() {
         return joueurs;
     }
 
-    public void setJoueurs(ArrayList<JoueurDTO> joueurs) {
+    public void setJoueurs(List<JoueurDTO> joueurs) {
         this.joueurs = joueurs;
     }
 
-    public ArrayList<QuestionnaireDispoDTO> getQuestionnaires() {
+    public List<QuestionnaireDispoDTO> getQuestionnaires() {
         return questionnaires;
     }
 
-    public void setQuestionnaires(ArrayList<QuestionnaireDispoDTO> questionnaires) {
+    public void setQuestionnaires(List<QuestionnaireDispoDTO> questionnaires) {
         this.questionnaires = questionnaires;
     }
 

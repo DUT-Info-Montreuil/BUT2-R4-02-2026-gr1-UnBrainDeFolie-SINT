@@ -8,6 +8,7 @@ import universite_Paris8.iut.qdev.tp2026.gr1.services.interfaces.IServiceQuizz.I
 import universite_Paris8.iut.qdev.tp2026.gr1.utils.exceptions.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Implémentation de l'interface ISINTServiceQuizz.
@@ -15,8 +16,8 @@ import java.util.ArrayList;
  */
 public class ServiceQuizz implements ISINTServiceQuizz {
 
-    private ArrayList<JoueurDTO> joueurs;
-    private ArrayList<QuestionnaireDispoDTO> questionnaires;
+    private List<JoueurDTO> joueurs;
+    private List<QuestionnaireDispoDTO> questionnaires;
 
     public ServiceQuizz() {
 
@@ -30,19 +31,19 @@ public class ServiceQuizz implements ISINTServiceQuizz {
      * @throws ErreurChargementJoueurException   si un joueur dans la liste est null
      */
     @Override
-    public ArrayList<JoueurDTO> joueursDisponibles() throws JoueursInexistantsException, ErreurChargementJoueurException {
-
-        if (joueurs == null || joueurs.isEmpty()) {
+    public List<JoueurDTO> joueursDisponibles(IServiceJoueur serviceJoueur) throws JoueursInexistantsException, ErreurChargementJoueurException, ListeJoueursException {
+        List<JoueurDTO> listeJoueur = serviceJoueur.listerJoueurs();
+        if (listeJoueur == null || listeJoueur.isEmpty()) {
             throw new JoueursInexistantsException("Aucun joueur disponible dans le système.");
         }
 
-        for (JoueurDTO joueur : joueurs) {
+        for (JoueurDTO joueur : listeJoueur) {
             if (joueur == null) {
                 throw new ErreurChargementJoueurException("Erreur lors du chargement : un joueur est null.");
             }
         }
 
-        return joueurs;
+        return listeJoueur;
     }
 
     /**
@@ -53,7 +54,7 @@ public class ServiceQuizz implements ISINTServiceQuizz {
      * @throws ErreurChargementQuestionnairesException   si un questionnaire dans la liste est null
      */
     @Override
-    public ArrayList<QuestionnaireDispoDTO> questionnairesDisponibles() throws QuestionnairesInexistantsException, ErreurChargementQuestionnairesException {
+    public List<QuestionnaireDispoDTO> questionnairesDisponibles() throws QuestionnairesInexistantsException, ErreurChargementQuestionnairesException {
         if (questionnaires == null || questionnaires.isEmpty()) {
             throw new QuestionnairesInexistantsException("Aucun questionnaire disponible dans le système.");
         }
@@ -76,27 +77,24 @@ public class ServiceQuizz implements ISINTServiceQuizz {
      * @throws ErreurChargementException    si un des éléments est null
      */
     @Override
-    public ElementsDisponiblesDTO elementsDispo() throws ElementInexistantException, ErreurChargementException {
-
-        ArrayList<JoueurDTO> joueursDispos;
-        ArrayList<QuestionnaireDispoDTO> questionnairesDispos;
+    public ElementsDisponiblesDTO elementsDispo(IServiceJoueur serviceJoueur) throws ElementInexistantException, ErreurChargementException {
 
         try {
-            joueursDispos = joueursDisponibles();
-        } catch (JoueursInexistantsException e) {
+            this.joueurs = joueursDisponibles(serviceJoueur);
+        } catch (JoueursInexistantsException | ListeJoueursException e) {
             throw new ElementInexistantException("Liste des joueurs vide ou inexistante : " + e.getMessage());
         } catch (ErreurChargementJoueurException e) {
             throw new ErreurChargementException("Erreur de chargement d'un joueur : " + e.getMessage());
         }
 
         try {
-            questionnairesDispos = questionnairesDisponibles();
+            this.questionnaires = questionnairesDisponibles();
         } catch (QuestionnairesInexistantsException e) {
             throw new ElementInexistantException("Liste des questionnaires vide ou inexistante : " + e.getMessage());
         } catch (ErreurChargementQuestionnairesException e) {
             throw new ErreurChargementException("Erreur de chargement d'un questionnaire : " + e.getMessage());
         }
 
-        return new ElementsDisponiblesDTO(joueursDispos, questionnairesDispos);
+        return new ElementsDisponiblesDTO(this.joueurs, this.questionnaires);
     }
 }
